@@ -132,7 +132,7 @@ const WeeklyForecast = ({ data, temperatureUnit }) => {
     );
 
   return (
-    <div className="p-[3rem] rounded-2xl bg-[#365486] shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)]">
+    <div className="px-[2rem] py-[3rem] rounded-2xl bg-[#365486] shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)]">
       <Layout
         title="WEEKLY FORECAST"
         content={content}
