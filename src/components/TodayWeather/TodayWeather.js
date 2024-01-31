@@ -1,4 +1,3 @@
-import { Grid } from "@mui/material";
 import React from "react";
 import AirConditions from "./AirConditions/AirConditions";
 import DailyForecast from "./Forecast/DailyForecast";
