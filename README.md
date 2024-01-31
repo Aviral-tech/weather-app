@@ -23,6 +23,8 @@
 
 - Install the packages using `npm install` in terminal
 
+- Run the application server using `npm start` in terminal
+
 <br/>
 
 ## 📙 Used libraries
