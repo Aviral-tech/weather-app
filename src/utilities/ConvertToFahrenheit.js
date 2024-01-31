@@ -3,5 +3,5 @@ export const convertToCelsius = (fahrenheit) => {
 };
 
 export const convertToFahrenheit = (celsius) => {
-  return (celsius * 9) / 5 + 32;
+  return ((celsius * 9) / 5 + 32).toFixed(0);
 };

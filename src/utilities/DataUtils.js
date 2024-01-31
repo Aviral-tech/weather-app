@@ -136,3 +136,20 @@ export const getTodayForecastWeather = (
     return all_today_forecasts.slice(-6);
   }
 };
+
+export const calculateAverageTemperature = (forecastList) => {
+  if (!forecastList || forecastList.length === 0) {
+    return null;
+  }
+  let totalTemperature = 0;
+
+  forecastList.forEach((num) => {
+    totalTemperature += num;
+  });
+
+  const averageTemperature = (totalTemperature / forecastList.length).toFixed(
+    0
+  );
+
+  return averageTemperature;
+};

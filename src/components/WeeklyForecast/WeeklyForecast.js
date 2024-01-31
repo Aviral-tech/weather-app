@@ -1,15 +1,15 @@
 import React from "react";
 import { Grid } from "@mui/material";
 import { getWeekDays } from "../../utilities/DatetimeUtils";
+import { convertToFahrenheit } from "../../utilities/ConvertToFahrenheit";
 import { weatherIcon } from "../../utilities/IconsUtils";
 import WeeklyForecastItem from "./WeeklyForecastItem";
 import ErrorBox from "../Reusable/ErrorBox";
 import UnfedForecastItem from "./UnfedForecastItem";
 import DayWeatherDetails from "./DayWeatherDetails";
 import Layout from "../Reusable/Layout";
-import { convertToFahrenheit } from "../../utilities/ConvertToFahrenheit";
 
-const WeeklyForecast = ({ data, temperatureUnit }) => {
+const WeeklyForecast = ({ data, temperatureUnit, averageTemperature }) => {
   const forecastDays = getWeekDays();
 
   const noDataProvided =
@@ -134,7 +134,11 @@ const WeeklyForecast = ({ data, temperatureUnit }) => {
   return (
     <div className="px-[2rem] py-[3rem] rounded-2xl bg-[#365486] shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)]">
       <Layout
-        title="WEEKLY FORECAST"
+        title={`WEEKLY FORECAST WITH AVERAGE TEMPERATURE: ${
+          temperatureUnit === "metric"
+            ? `${averageTemperature}°C`
+            : `${convertToFahrenheit(averageTemperature)} °F`
+        } `}
         content={content}
         mb=".8rem"
         sx={{

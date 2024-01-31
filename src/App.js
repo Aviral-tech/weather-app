@@ -5,6 +5,7 @@ import WeeklyForecast from "./components/WeeklyForecast/WeeklyForecast";
 import TodayWeather from "./components/TodayWeather/TodayWeather";
 import { fetchWeatherData } from "./api/OpenWeatherService";
 import { transformDateFormat } from "./utilities/DatetimeUtils";
+import { calculateAverageTemperature } from "./utilities/DataUtils";
 import ISTDatetime from "./components/Reusable/ISTDatetime";
 import LoadingBox from "./components/Reusable/LoadingBox";
 import { ReactComponent as SplashIcon } from "./assets/splash-icon.svg";
@@ -23,6 +24,8 @@ function App() {
   const [weekForecast, setWeekForecast] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
+
+  const [averageTemperature, setAverageTemperature] = useState(null);
 
   const [temperatureUnit, setTemperatureUnit] = useState("metric");
 
@@ -60,6 +63,13 @@ function App() {
         weekForecastResponse,
         ALL_DESCRIPTIONS
       );
+      const temperatures = all_week_forecasts_list.map(
+        (forecast) => forecast.temp
+      );
+
+      // Calculate average temperature for the week forecast
+      const avgTemperature = calculateAverageTemperature(temperatures);
+      setAverageTemperature(avgTemperature);
 
       setTodayForecast([...all_today_forecasts_list]);
       setTodayWeather({ city: enteredData.label, ...todayWeatherResponse });
@@ -128,6 +138,7 @@ function App() {
           <WeeklyForecast
             data={weekForecast}
             temperatureUnit={temperatureUnit}
+            averageTemperature={averageTemperature}
           />
         </div>
       </div>
