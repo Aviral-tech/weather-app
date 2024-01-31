@@ -5,7 +5,7 @@
 
 ## 💻 Live Demo:
 
-[https://the-weather-forecasting.netlify.app](https://melodic-cactus-5d1a4d.netlify.app/)
+[https://melodic-cactus-5d1a4d.netlify.app/](https://melodic-cactus-5d1a4d.netlify.app/)
 
 <br/>
 
